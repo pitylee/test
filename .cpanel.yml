@@ -1,0 +1,11 @@
+---
+deployment:
+  tasks:
+    - export REPOPATH=/home2/tamvitol/repositories/test/
+    - export DEPLOYPATH=/home2/tamvitol/test/
+    - /bin/sh -c "mkdir -p $DEPLOYPATH"
+    - /bin/sh -c "cp -r $REPOPATH/{*,.*} $DEPLOYPATH/"
+    - /bin/sh -c "cd $DEPLOYPATH"
+    - /bin/sh -c "chmod 755 -R ./"
+    - /bin/sh -c "find ./ -type f -exec chmod 644 {} \;"
+    - /bin/sh -c "chmod 777 -R cache app var modules img"
